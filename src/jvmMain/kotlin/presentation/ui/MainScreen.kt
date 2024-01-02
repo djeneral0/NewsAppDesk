@@ -45,5 +45,6 @@ fun MainScreen() {
         })
 
 //        Main Content
+        MainContent(headTitle, article)
     }
 }
