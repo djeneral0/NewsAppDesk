@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
+import commons.formatDate
 import commons.handleCursor
 import commons.loadPicture
 import commons.openURL
@@ -98,6 +99,14 @@ fun MainContent(headerTitle: String, article: List<Article>){
                                     it.content ?: "",
                                     color = Color.Black,
                                     fontWeight = FontWeight.ExtraLight,
+                                    maxLines = 2,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                                Spacer(modifier = Modifier.size(2.dp))
+                                Text(
+                                    formatDate(it.publishedAt),
+                                    color = Color.Black,
+                                    fontWeight = FontWeight.SemiBold,
                                     maxLines = 2,
                                     overflow = TextOverflow.Ellipsis
                                 )

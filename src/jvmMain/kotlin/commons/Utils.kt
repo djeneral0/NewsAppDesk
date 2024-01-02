@@ -7,6 +7,8 @@ import java.awt.Cursor
 import java.awt.Desktop
 import java.net.URI
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun handleCursor() = PointerIcon(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR))
 
@@ -18,3 +20,11 @@ fun openURL(url: URI){
 fun loadPicture(url: String) =
     Image.makeFromEncoded(URL(url).readBytes())
         .toComposeImageBitmap()
+
+fun formatDate(date: String): String{
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
+    val date = inputFormat.parse(date)
+
+    val outputFormat = SimpleDateFormat("EEEE d MMMM yyyy", Locale.US)
+    return outputFormat.format(date)
+}
